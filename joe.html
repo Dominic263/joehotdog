@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Joe's Hotdog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="body">
+
+  <h1> JOE'S SPICY HOTDOG </h1>
+
+  <table class= "center">
+
+    <tr>
+      <td>
+        <h2> ITEM </h2>
+      </td>
+      <td>
+        <h2> QUANTITY </h2>
+      </td>
+      <td>
+        <h2> AMOUNT $ </h2>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="hotdogs">HOTDOG</label></td>
+      <td>
+        <h3 id="num_hotdogs"></h3>
+      </td>
+      <td>
+        <h3 id="h_total"></h3>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="fries">FRIES</label></td>
+      <td>
+        <h3 id="num_fries"></h3>
+      </td>
+      <td>
+        <h3 id="f_total"></h3>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="drinks">DRINKS</label></td>
+      <td>
+        <h3 id="num_drinks"></h3>
+      </td>
+      <td>
+        <h3 id="d_total"></h3>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><label for="subtotal">SUBTOTAL</label></td>
+      <td></td>
+      <td>
+        <h3 id="s_total"></h3>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="discont"> DISCOUNT </label></td>
+      <td></td>
+      <td>
+        <h3 id="dis"></h3>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="masstax"> TAX </label></td>
+      <td></td>
+      <td>
+        <h3 id="tax"></h3>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="total">TOTAL</label></td>
+      <td></td>
+      <td>
+        <h3 id="total"></h3>
+      </td>
+    </tr>
+
+  </table>
+
+  <script type="text/javascript">
+    var num_h = parseInt(prompt("HOTDOG QUANTITY: "));
+
+    var num_f = parseInt(prompt("FRIES QUANTITY: "));
+
+    var num_d = parseInt(prompt("DRINKS QUANTITY: "));
+
+    document.getElementById("num_hotdogs").innerHTML = num_h;
+    document.getElementById("num_fries").innerHTML = num_f;
+    document.getElementById("num_drinks").innerHTML = num_d;
+
+    var d_price = 1.50;
+    var f_price = 2.00;
+    var h_price = 3.25;
+    var d_total = (num_d * d_price);
+    var f_total = (num_f * f_price);
+    var h_total = (num_h + h_price);
+    document.getElementById("d_total").innerHTML = d_total.toFixed(2);
+    document.getElementById("f_total").innerHTML = f_total.toFixed(2);
+    document.getElementById("h_total").innerHTML = h_total.toFixed(2);
+
+    var s_total = (num_d * d_price + num_f * f_price + num_h * h_price);
+    var tax = 0.0625 * s_total;
+    var dis = 0;
+
+    if (s_total >= 20.00) {
+      dis = 0.1 * s_total;
+    }
+
+    var total = (s_total - dis) + tax;
+
+    document.getElementById("s_total").innerHTML = s_total.toFixed(2);
+    document.getElementById("tax").innerHTML = tax.toFixed(2);
+    document.getElementById("dis").innerHTML = dis.toFixed(2);
+    document.getElementById("total").innerHTML = total.toFixed(2);
+  </script>
+</body>
+
+</html>
